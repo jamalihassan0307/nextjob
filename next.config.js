@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "static", // Changed from 'export' to 'static'
+  output: "export",
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
+  },
+  experimental: {
+    appDir: true,
   },
 };
 
