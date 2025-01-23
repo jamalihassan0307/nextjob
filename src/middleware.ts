@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { PageProps } from "next";
 
 export function middleware(request: NextRequest) {
   // Get stored user from localStorage (client-side storage)
@@ -34,3 +35,9 @@ export const config = {
     "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };
+
+interface ApplyJobProps extends PageProps {
+  params: {
+    id: string; // Ensure this matches the expected structure
+  };
+}
