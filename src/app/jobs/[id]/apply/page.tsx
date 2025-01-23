@@ -1,10 +1,16 @@
+import { Metadata } from "next";
 import ApplyJobForm from "./ApplyJobForm";
 
-interface PageProps {
+type Props = {
   params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
+  searchParams: Record<string, string | string[] | undefined>;
+};
 
-export default async function ApplyJobPage({ params }: PageProps) {
-  return <ApplyJobForm jobId={params.id} />;
+export const metadata: Metadata = {
+  title: "Apply for Job | NextJob",
+  description: "Apply for your next opportunity",
+};
+
+export default function ApplyJobPage(props: Props) {
+  return <ApplyJobForm jobId={props.params.id} />;
 }
