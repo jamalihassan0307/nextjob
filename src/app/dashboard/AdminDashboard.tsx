@@ -28,6 +28,7 @@ export default function AdminDashboard({ user }: { user: User }) {
                 <h3>Companies</h3>
                 <p className="stat-number">{stats.activeCompanies}</p>
               </div>
+
               <div className="stat-box">
                 <h3>Applications</h3>
                 <p className="stat-number">{stats.totalApplications}</p>
