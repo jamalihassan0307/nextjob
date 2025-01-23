@@ -22,7 +22,26 @@ export const jobListings: Job[] = [
     description: "We are looking for a Senior Frontend Developer...",
     postedDate: "2024-03-07",
   },
-  // Add more sample jobs as needed
+  {
+    id: 2,
+    title: "UX Designer",
+    company: "Design Studio",
+    location: "New York, NY",
+    salary: "$80,000 - $100,000",
+    type: "Full-time",
+    description: "Join our creative team as a UX Designer...",
+    postedDate: "2024-03-07",
+  },
+  {
+    id: 3,
+    title: "Backend Engineer",
+    company: "Tech Corp",
+    location: "Remote",
+    salary: "$110,000 - $140,000",
+    type: "Full-time",
+    description: "Looking for an experienced Backend Engineer...",
+    postedDate: "2024-03-07",
+  },
 ];
 
 export const addJob = (job: Omit<Job, "id" | "postedDate">) => {
