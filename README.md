@@ -4,6 +4,10 @@ A full-featured job board application built with Next.js 14, TypeScript, and Fir
 
 ![NextJob Screenshot](public/screenshot.png)
 
+## 🌟 Live Demo
+
+Visit the live application: [https://nextjob-0307.web.app](https://nextjob-0307.web.app)
+
 ## 🌟 Features
 
 ### For Job Seekers
@@ -175,10 +179,6 @@ NEXT_PUBLIC_FIREBASE_APP_ID=
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🌟 Live Demo
-
-Visit the live application: [https://nextjob-0307.web.app](https://nextjob-0307.web.app)
 
 ## 📞 Support
 
