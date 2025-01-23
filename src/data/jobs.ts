@@ -10,27 +10,19 @@ export interface Job {
   status?: string;
 }
 
+// Add some sample job listings for static generation
 export const jobListings: Job[] = [
-  //   {
-  //     id: 1,
-  //     title: "Senior Frontend Developer",
-  //     company: "Tech Corp",
-  //     location: "Remote",
-  //     salary: "$100,000 - $130,000",
-  //     type: "Full-time",
-  //     description: "We are looking for an experienced Frontend Developer...",
-  //     postedDate: "2024-03-01",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "UX Designer",
-  //     company: "Design Studio",
-  //     location: "New York, NY",
-  //     salary: "$80,000 - $100,000",
-  //     type: "Full-time",
-  //     description: "Join our creative team as a UX Designer...",
-  //     postedDate: "2024-03-05",
-  //   },
+  {
+    id: 1,
+    title: "Senior Frontend Developer",
+    company: "Tech Corp",
+    location: "Remote",
+    salary: "$100,000 - $130,000",
+    type: "Full-time",
+    description: "We are looking for a Senior Frontend Developer...",
+    postedDate: "2024-03-07",
+  },
+  // Add more sample jobs as needed
 ];
 
 export const addJob = (job: Omit<Job, "id" | "postedDate">) => {

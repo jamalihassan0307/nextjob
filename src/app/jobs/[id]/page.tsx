@@ -1,8 +1,7 @@
-"use client";
-import Link from "next/link";
-import { useAuth } from "@/context/AuthContext";
+import { jobListings } from "@/data/jobs";
+import JobDetailsClient from "./JobDetailsClient";
 
-// Demo job data - in a real app, fetch this based on the job ID
+// Demo job data
 const jobDetails = {
   id: 1,
   title: "Senior Frontend Developer",
@@ -30,74 +29,12 @@ const jobDetails = {
   ],
 };
 
+export async function generateStaticParams() {
+  return jobListings.map((job) => ({
+    id: job.id.toString(),
+  }));
+}
+
 export default function JobDetails({ params }: { params: { id: string } }) {
-  const { user } = useAuth();
-
-  return (
-    <div className="job-details-container">
-      <div className="job-header">
-        <h1>{jobDetails.title}</h1>
-        <p className="job-company">{jobDetails.company}</p>
-        <div className="job-highlights">
-          <div className="highlight-item">
-            <p className="highlight-label">Location</p>
-            <p className="highlight-value">{jobDetails.location}</p>
-          </div>
-          <div className="highlight-item">
-            <p className="highlight-label">Salary</p>
-            <p className="highlight-value">{jobDetails.salary}</p>
-          </div>
-          <div className="highlight-item">
-            <p className="highlight-label">Type</p>
-            <p className="highlight-value">{jobDetails.type}</p>
-          </div>
-          <div className="highlight-item">
-            <p className="highlight-label">Experience</p>
-            <p className="highlight-value">{jobDetails.experience}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="job-content">
-        <div className="content-section">
-          <h2>About the Role</h2>
-          <p>{jobDetails.description}</p>
-        </div>
-
-        <div className="content-section">
-          <h2>Requirements</h2>
-          <ul className="requirements-list">
-            {jobDetails.requirements.map((req, index) => (
-              <li key={index}>{req}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="content-section">
-          <h2>Benefits</h2>
-          <ul className="benefits-list">
-            {jobDetails.benefits.map((benefit, index) => (
-              <li key={index}>{benefit}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="apply-section">
-        <h2>Interested in this position?</h2>
-        <p>Submit your application now and we'll get back to you soon!</p>
-        <div className="action-buttons">
-          <Link
-            href={`/jobs/${params.id}/apply`}
-            className="button button-primary"
-          >
-            Apply Now
-          </Link>
-          <Link href="/jobs" className="button button-secondary">
-            Back to Jobs
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  return <JobDetailsClient id={params.id} jobDetails={jobDetails} />;
 }
