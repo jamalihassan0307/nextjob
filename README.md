@@ -63,43 +63,55 @@ NextJob is a modern job board platform built with Next.js 14 and Firebase. It co
 ### Authentication & User Management
 
 <div align="center">
-  <img src="public/screenshots/login_page.png" alt="Login Page" width="800"/>
+  <img src="screenshots/login_page.png" alt="Login Page" width="800"/>
   <p>Secure authentication with role-based access control</p>
   
-  <img src="public/screenshots/signuppage_admin_jobseeker_emplyer.png" alt="Signup Options" width="800"/>
+  <img src="screenshots/signuppage_admin_jobseeker_emplyer.png" alt="Signup Options" width="800"/>
   <p>Multiple user roles: Job Seeker, Employer, and Admin</p>
 </div>
 
 ### Job Seeker Experience
 
 <div align="center">
-  <img src="public/screenshots/browsejob.png" alt="Browse Jobs" width="800"/>
-  <p>Browse available job listings with advanced filters</p>
+  <img src="screenshots/browsejob.png" alt="Browse Jobs" width="800"/>
+  <p>Browse and search through available positions</p>
   
-  <img src="public/screenshots/job_detail.png" alt="Job Details" width="800"/>
+  <img src="screenshots/browsejob1.png" alt="Job Listings" width="800"/>
+  <p>Comprehensive job listings with filters</p>
+  
+  <img src="screenshots/job_detail.png" alt="Job Details" width="800"/>
   <p>Detailed job information and requirements</p>
   
-  <img src="public/screenshots/apply_job_form.png" alt="Job Application" width="800"/>
+  <img src="screenshots/job_detail1.png" alt="Job Requirements" width="800"/>
+  <p>Complete job requirements and benefits</p>
+  
+  <img src="screenshots/applynow.png" alt="Apply Now" width="800"/>
+  <p>Quick application button for interested candidates</p>
+  
+  <img src="screenshots/apply_job_form.png" alt="Job Application Form" width="800"/>
   <p>Easy job application process with resume upload</p>
+  
+  <img src="screenshots/apply_job_form1.png" alt="Application Details" width="800"/>
+  <p>Detailed application form with cover letter</p>
 </div>
 
 ### Employer Dashboard
 
 <div align="center">
-  <img src="public/screenshots/Employer_dashborad.png" alt="Employer Dashboard" width="800"/>
+  <img src="screenshots/Employer_dashborad.png" alt="Employer Dashboard" width="800"/>
   <p>Manage job postings and track applications</p>
   
-  <img src="public/screenshots/post_newjob.png" alt="Post New Job" width="800"/>
+  <img src="screenshots/post_newjob.png" alt="Post New Job" width="800"/>
   <p>Create detailed job listings with comprehensive information</p>
   
-  <img src="public/screenshots/emplayer_dahsbrad_add_applyedjobs.png" alt="Applications Management" width="800"/>
+  <img src="screenshots/emplayer_dahsbrad_add_applyedjobs.png" alt="Applications Management" width="800"/>
   <p>Review and manage job applications</p>
 </div>
 
 ### Admin Controls
 
 <div align="center">
-  <img src="public/screenshots/admin_dashborad.png" alt="Admin Dashboard" width="800"/>
+  <img src="screenshots/admin_dashborad.png" alt="Admin Dashboard" width="800"/>
   <p>Platform overview and management tools</p>
 </div>
 
