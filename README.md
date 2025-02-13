@@ -140,35 +140,6 @@ NextJob is a modern job board platform built with Next.js 14 and Firebase. It co
 - Platform analytics
 - System statistics
 
-## 🚀 Getting Started
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/jamalihassan0307/nextjob.git
-cd nextjob
-```
-
-2. Install dependencies
-
-```bash
-npm install
-```
-
-3. Set up environment variables
-
-```env
-NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-```
-
-4. Run the development server
-
-```bash
-npm run dev
-```
-
 ## 👨‍💻 Developer Contact
 
 Feel free to reach out for questions or collaboration:
