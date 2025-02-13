@@ -1,196 +1,177 @@
-# NextJob - Modern Job Board Application
+<div align="center">
+      <h1> <img src="public/logo.png" width="80px"><br/>NextJob - Modern Job Board Platform</h1>
+      <h3>A Full-Featured Job Board Application</h3>
+</div>
 
-A full-featured job board application built with Next.js 14, TypeScript, and Firebase. NextJob connects job seekers with employers through an intuitive interface for job posting, application management, and recruitment.
+<p align="center">
+    <a href="https://nextjob-0307.web.app" target="_blank">
+        <img alt="" src="https://img.shields.io/badge/Website-EA4C89?style=normal&logo=dribbble&logoColor=white" style="vertical-align:center" />
+    </a>
+    <a href="https://github.com/jamalihassan0307" target="_blank">
+        <img alt="" src="https://img.shields.io/badge/GitHub-100000?style=normal&logo=github&logoColor=white" style="vertical-align:center" />
+    </a>
+    <a href="https://www.linkedin.com/in/jamalihassan0307/" target="_blank">
+        <img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" />
+    </a>
+</p>
 
-![NextJob Screenshot](public/screenshot.png)
+## 🔐 Demo Credentials
 
-## 🌟 Live Demo
+### Admin Account
 
-Visit the live application: [https://nextjob-0307.web.app](https://nextjob-0307.web.app)
+```json
+{
+  "email": "admin@gmail.com",
+  "password": "1234",
+  "role": "Admin"
+}
+```
 
-## 🌟 Features
+### Employer Account
+
+```json
+{
+  "email": "employer@gmail.com",
+  "password": "1234",
+  "role": "Employer"
+}
+```
+
+### Job Seeker Account
+
+```json
+{
+  "email": "jobseeker@gmail.com",
+  "password": "1234",
+  "role": "Job Seeker"
+}
+```
+
+# 📌 Overview
+
+NextJob is a modern job board platform built with Next.js 14 and Firebase. It connects job seekers with employers through an intuitive interface for job posting, application management, and recruitment.
+
+# 🛠️ Tech Stack
+
+![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+## 📸 Screenshots & Features
+
+### Authentication & User Management
+
+<div align="center">
+  <img src="public/screenshots/login_page.png" alt="Login Page" width="800"/>
+  <p>Secure authentication with role-based access control</p>
+  
+  <img src="public/screenshots/signuppage_admin_jobseeker_emplyer.png" alt="Signup Options" width="800"/>
+  <p>Multiple user roles: Job Seeker, Employer, and Admin</p>
+</div>
+
+### Job Seeker Experience
+
+<div align="center">
+  <img src="public/screenshots/browsejob.png" alt="Browse Jobs" width="800"/>
+  <p>Browse available job listings with advanced filters</p>
+  
+  <img src="public/screenshots/job_detail.png" alt="Job Details" width="800"/>
+  <p>Detailed job information and requirements</p>
+  
+  <img src="public/screenshots/apply_job_form.png" alt="Job Application" width="800"/>
+  <p>Easy job application process with resume upload</p>
+</div>
+
+### Employer Dashboard
+
+<div align="center">
+  <img src="public/screenshots/Employer_dashborad.png" alt="Employer Dashboard" width="800"/>
+  <p>Manage job postings and track applications</p>
+  
+  <img src="public/screenshots/post_newjob.png" alt="Post New Job" width="800"/>
+  <p>Create detailed job listings with comprehensive information</p>
+  
+  <img src="public/screenshots/emplayer_dahsbrad_add_applyedjobs.png" alt="Applications Management" width="800"/>
+  <p>Review and manage job applications</p>
+</div>
+
+### Admin Controls
+
+<div align="center">
+  <img src="public/screenshots/admin_dashborad.png" alt="Admin Dashboard" width="800"/>
+  <p>Platform overview and management tools</p>
+</div>
+
+## 🔑 Key Features
 
 ### For Job Seekers
 
-- Create and manage professional profiles
 - Browse and search job listings
-- Apply to jobs with resume and cover letter
+- Apply with resume and cover letter
 - Track application status
-- Save favorite job listings
+- Save favorite jobs
+- Professional profile management
 
 ### For Employers
 
 - Post and manage job listings
 - Review applications
-- Manage candidate pipeline
+- Track candidate pipeline
 - Company profile management
 - Application tracking system
 
-### For Admins
+### For Administrators
 
 - User management
 - Content moderation
-- Analytics dashboard
+- Platform analytics
 - System statistics
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 14](https://nextjs.org/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Authentication**: [Firebase Auth](https://firebase.google.com/products/auth)
-- **Hosting**: [Firebase Hosting](https://firebase.google.com/products/hosting)
-- **State Management**: React Context
-- **Styling**: CSS Modules
-- **Development Tools**:
-  - ESLint
-  - Prettier
-  - TypeScript
-  - Turbopack
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- Node.js 18.0 or later
-- npm or yarn
-- Firebase account
-- Git
-
-### Installation
-
-1. Clone the repository:
+1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/nextjob.git
+git clone https://github.com/jamalihassan0307/nextjob.git
 cd nextjob
 ```
 
-2. Install dependencies:
+2. Install dependencies
 
 ```bash
 npm install
 ```
 
-3. Set up environment variables:
-   Create a `.env.local` file in the root directory:
+3. Set up environment variables
 
 ```env
 NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-4. Start the development server:
+4. Run the development server
 
 ```bash
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see the application.
+## 👨‍💻 Developer Contact
 
-## 📁 Project Structure
+Feel free to reach out for questions or collaboration:
 
-```
-nextjob/
-├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── dashboard/         # Dashboard views
-│   │   ├── jobs/             # Job-related pages
-│   │   ├── login/           # Authentication
-│   │   └── signup/         # User registration
-│   ├── components/         # Reusable components
-│   ├── context/           # React Context providers
-│   ├── data/             # Data models and services
-│   ├── firebase/        # Firebase configuration
-│   └── styles/         # CSS styles
-├── public/            # Static assets
-└── config files      # Configuration files
-```
-
-## 📝 Available Scripts
-
-```bash
-# Development
-npm run dev          # Start development server with Turbopack
-
-# Production
-npm run build        # Build production application
-npm run start        # Start production server
-
-# Deployment
-npm run deploy       # Deploy to Firebase Hosting
-
-# Code Quality
-npm run lint         # Run ESLint
-```
-
-## 🌐 Deployment
-
-The project is configured for Firebase Hosting:
-
-1. Install Firebase CLI:
-
-```bash
-npm install -g firebase-tools
-```
-
-2. Login to Firebase:
-
-```bash
-firebase login
-```
-
-3. Initialize Firebase:
-
-```bash
-firebase init
-```
-
-4. Deploy:
-
-```bash
-npm run deploy
-```
-
-## 🔒 Environment Variables
-
-Required environment variables:
-
-```env
-NEXT_PUBLIC_FIREBASE_API_KEY=
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
-NEXT_PUBLIC_FIREBASE_APP_ID=
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-For support, email [your-email@example.com](mailto:your-email@example.com) or create an issue in the repository.
+- GitHub: [@jamalihassan0307](https://github.com/jamalihassan0307)
+- LinkedIn: [Jamali Hassan](https://www.linkedin.com/in/jamalihassan0307/)
 
 ## 🙏 Acknowledgments
 
-- [Next.js](https://nextjs.org/) - The React Framework
-- [Firebase](https://firebase.google.com/) - Backend and Hosting
-- [TypeScript](https://www.typescriptlang.org/) - Type Safety
-- All our contributors and users
+Special thanks to:
+
+- Next.js team for the amazing framework
+- Firebase for backend services
+- All contributors and users of NextJob
 
 ---
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Jamali Hassan](https://github.com/jamalihassan0307)
