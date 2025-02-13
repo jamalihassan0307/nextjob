@@ -2,23 +2,25 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // Get token from cookie
-  const token = request.cookies.get("token");
+  const authToken = request.cookies.get("authToken")?.value;
+  const isAuthPage =
+    request.nextUrl.pathname.startsWith("/login") ||
+    request.nextUrl.pathname.startsWith("/signup");
 
-  // Protected routes that require authentication
-  const protectedRoutes = ["/dashboard", "/jobs/create"];
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    request.nextUrl.pathname.startsWith(route)
-  );
+  // If trying to access auth pages while logged in, redirect to dashboard
+  if (isAuthPage && authToken) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
 
-  if (isProtectedRoute && !token) {
+  // If trying to access protected pages without auth, redirect to login
+  if (!isAuthPage && !authToken) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
   return NextResponse.next();
 }
 
-// Configure which routes to run middleware on
+// Add your protected routes here
 export const config = {
-  matcher: ["/dashboard/:path*", "/jobs/create/:path*"],
+  matcher: ["/dashboard/:path*", "/jobs/create", "/login", "/signup"],
 };

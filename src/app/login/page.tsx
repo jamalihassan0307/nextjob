@@ -1,101 +1,85 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { findUser, UserRole } from "@/data/users";
-import { useAuth } from "@/context/AuthContext";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/firebase/config";
 
 export default function Login() {
-  const router = useRouter();
-  const { login } = useAuth();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [selectedRole, setSelectedRole] = useState<UserRole>("candidate");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const user = findUser(formData.email, formData.password);
+    try {
+      setError("");
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
 
-    if (user && user.role === selectedRole) {
-      login(user);
-      router.push("/dashboard");
-    } else {
-      setError("Invalid credentials or role mismatch");
+      if (user) {
+        // Store auth token in cookie or localStorage
+        localStorage.setItem("authToken", await user.getIdToken());
+        router.push("/dashboard"); // Redirect to dashboard after successful login
+      }
+    } catch (error: any) {
+      console.error("Login error:", error);
+      setError(
+        error.message || "Failed to login. Please check your credentials."
+      );
     }
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <div className="auth-header">
-          <h2>Sign in to your account</h2>
-          <div className="role-selector">
-            <button
-              className={`role-button ${
-                selectedRole === "candidate" ? "active" : ""
-              }`}
-              onClick={() => setSelectedRole("candidate")}
-            >
-              Job Seeker
-            </button>
-            <button
-              className={`role-button ${
-                selectedRole === "company" ? "active" : ""
-              }`}
-              onClick={() => setSelectedRole("company")}
-            >
-              Employer
-            </button>
-            <button
-              className={`role-button ${
-                selectedRole === "admin" ? "active" : ""
-              }`}
-              onClick={() => setSelectedRole("admin")}
-            >
-              Admin
-            </button>
-          </div>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
+        <h2 className="text-center text-3xl font-extrabold text-gray-900">
+          Sign in to your account
+        </h2>
 
-        <form className="auth-form" onSubmit={handleSubmit}>
-          {error && <div className="error-message">{error}</div>}
-          <div>
-            <label className="form-label">Email</label>
-            <input
-              type="email"
-              required
-              className="form-input"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            {error}
           </div>
-          <div>
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              required
-              className="form-input"
-              placeholder="Enter your password"
-              value={formData.password}
-              onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
-              }
-            />
+        )}
+
+        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+          <div className="rounded-md shadow-sm -space-y-px">
+            <div>
+              <input
+                type="email"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
-          <button type="submit" className="button button-primary">
-            Sign in as {selectedRole}
-          </button>
+
+          <div>
+            <button
+              type="submit"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Sign in
+            </button>
+          </div>
         </form>
-
-        <div className="auth-footer">
-          <Link href="/signup">Don't have an account? Sign up</Link>
-        </div>
       </div>
     </div>
   );

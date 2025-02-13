@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import CandidateDashboard from "./CandidateDashboard";
 import CompanyDashboard from "./CompanyDashboard";
 import AdminDashboard from "./AdminDashboard";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function Dashboard() {
   const { user } = useAuth();
